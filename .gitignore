@@ -1,0 +1,24 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+.env
+email_template.html
+emailAtachemnt.py
+fancy_emails.py
+fancy_mail1.py
+mail1.py
+mainn.py
+mainprac.py
+
+email_Templates
+moderncode.py
+docs/
+attachment/
