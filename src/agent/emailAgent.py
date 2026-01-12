@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from pydantic import BaseModel , Field
 from utils import PromptManager
-from .Tools import MJMLGenerator , sendEmail , createFile , createFolder , renderMjmlwithData , sendFancyMail , writeMjml
+from .Tools import MJMLGenerator , sendEmail , createFile , createFolder , renderMjmlwithData , sendFancyMail , writeMjml, makeBuildTool
 from agents.extensions.models.litellm_model import LitellmModel 
 from agents import SQLiteSession
 # from agents import ModelSettings
@@ -104,38 +104,15 @@ class EmailAgent():
                    sendEmail,
                    mjml_generatorAgent.as_tool(
                        tool_name="MJML_markup_Generator",
-                       tool_description=""" You are an expert MJML email template generator.
-
-          Your task:
-          - Generate VALID MJML code for email templates.
-          - Output ONLY MJML (no explanations, no markdown, no comments).
-          - The MJML must be ready to compile using the official MJML compiler.
-          - The MJML must be compatible with Jinja2 templating syntax.
-
-          Rules:
-          1. Use ONLY MJML tags (mjml, mj-body, mj-section, mj-column, mj-text, mj-button, mj-image, mj-divider, mj-spacer).
-          2. Do NOT use raw HTML unless wrapped inside <mj-raw> (use this only if absolutely necessary).
-          3. Use inline styling via MJML attributes (font-size, color, padding, background-color).
-          4. Ensure the email is responsive and compatible with Gmail, Outlook, Yahoo.
-          5. Avoid JavaScript, external CSS, and unsupported CSS properties.
-          6. Use Jinja2 placeholders like {{ variable_name }} for dynamic content.
-          7. Use Jinja2 control blocks when requested:
-            - {% if condition %}
-            - {% for item in items %}
-          8. Keep layout clean, professional, and readable.
-          9. Do NOT hardcode text that the user wants dynamic.
-          10. Output must start with <mjml> and end with </mjml>.
-
-          Input you will receive:
-          - Email purpose (e.g., welcome, invoice, alert)
-          - Tone (professional, friendly, marketing)
-          - Content requirements (headings, buttons, images, links)
-          - Variables to include (names, links, OTPs, etc.)"""
+                       tool_description="""Generates valid, compiler-ready MJML email templates
+                                         with Jinja2 placeholders based on provided email purpose, 
+                                         tone, and content requirements."""
                        ),
                    renderMjmlwithData,
                    createFile,
                    createFolder,
-                   sendFancyMail      ,
+                   sendFancyMail ,
+                #    makeBuildTool,
                    writeMjml    
                 ],
         )

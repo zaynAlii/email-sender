@@ -1,7 +1,6 @@
 from agents import Agent
 from  utils import PromptManager
 from pathlib import Path
-from utils import load_LLM_configurations
 from agents import OpenAIChatCompletionsModel
 from agents.extensions.models.litellm_model import LitellmModel
 from agents import ModelSettings
@@ -10,11 +9,7 @@ class MJMLGenerator():
         
         self.prompt_manager=PromptManager(Path(__file__).parent.parent.parent / "Prompt" / "agentPrompts.yaml")
         self.modelIs=modelIs
-    # 
-    # @property
-    # def  modelIs(self)->str:
-    #     modelIs=load_LLM_configurations() ["model_name"]
-    #     return 
+    
      
     
     @property

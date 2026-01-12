@@ -67,5 +67,9 @@ def writeMjml(pathToFile:str, content:str):
     with open(pathToFile,'w' , encoding="utf-8")as f:
         f.write(content)
     
-    return "File has been writeen successfully"    
+    
+    # if not pathToFile.is_file():
+        # raise f""
+    
+    return f"File has been written successfully To this Path {pathToFile} "    
             

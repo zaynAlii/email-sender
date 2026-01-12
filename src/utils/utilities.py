@@ -2,15 +2,15 @@ from dotenv import load_dotenv
 import os 
 load_dotenv()
 
-def load_LLM_configurations()->dict[str , str]:
-    configurations = {
+# def load_LLM_configurations()->dict[str , str]:
+#     configurations = {
        
-        "LLM_BASE_URL": os.environ["LLM_BASE_URL"],
-        "LLM_MODEL": os.environ["LLM_MODEL"],
-        "LLM_API_KEY": os.environ["LLM_API_KEY"],
+#         "LLM_BASE_URL": os.environ["LLM_BASE_URL"],
+#         "LLM_MODEL": os.environ["LLM_MODEL"],
+#         "LLM_API_KEY": os.environ["LLM_API_KEY"],
         
-    }
-    return configurations
+#     }
+#     return configurations
   
 def load_email_configurations()->dict[str , str]:
     configurations = {

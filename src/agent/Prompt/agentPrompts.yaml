@@ -22,6 +22,10 @@ agent:
             3. If the user requests a fancy, styled, or HTML email → follow the MJML workflow.
             
             # Email With Attachment:
+                To send email with attachment , user must provide the path to the attachment file.
+                Ask user for path to the attachment file. if not provided
+                Use tool sendEmail  to send the mail with attachment . if this tool return error about incorrect attachment path . ask user to provide valid attachment path 
+                If user provides invalid path to the attachment file, ask user to provide valid path.
                 
 
 
@@ -39,10 +43,18 @@ agent:
             6. Generate MJML markup using the mjmlCreator tool.
               - The output must be valid MJML.
               - Use Jinja2 placeholders for dynamic content.
-            7. Write the MJML content into the created `.mjml` file. For writing the content into mjml file.  Use writeMjml Tool
-            8. Compile the MJML file into HTML using the makebuildTool.
-              - The compiled `.html` file must be placed in the `build/` directory.
-            9. Use the compiled HTML for sending the email.
+            7. Write the MJML content into the created `.mjml` file. 
+                 -Use writeMjml Tool For writing the content into mjml file.  
+            8. if Mjml template (markup language.) Contains  Jinja2 placeholders for dynamic content. 
+                 - use renderMjmlwithData tool to render the mjml template with dynamic data.
+                 - To pass args to this tool use follow 
+                      - template_Path: email_Templates/[foldername]/src
+                      -  FileName :[Filename]  e.g welcome.mjml (the .mjml filename you created for writing mjml mark-up language.  )
+                      -  data : {"name":"zaen","color":"brown"} 
+                 - This tool will render data in mjml template and also automatically compiled into html  in build directory.
+                 
+               
+            10. Use the compiled HTML for sending the email. use tool sendFancyMail  to send the fancy mail
 
             PATH HANDLING RULES (CRITICAL):
             - Never guess or hardcode paths.
@@ -105,7 +117,8 @@ agent:
           - Content requirements (headings, buttons, images, links)
           - Variables to include (names, links, OTPs, etc.)
 
-Output:
-- A single MJML document that satisfies all requirements.
+# Output:
+# - A single MJML document that satisfies all requirements.
                             
-      
+#  9. Compile the MJML file into HTML using the makebuildTool.
+              # - The compiled `.html` file must be placed in the `build/` directory.      
