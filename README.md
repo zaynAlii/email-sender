@@ -48,3 +48,5 @@ To set up and run this project:
 4. Change to the source directory: `cd src`
 5. Before running, rewrite the configuration file to provide your own credentials as environmental variables.
 6. Run the project: `uv run main.py`
+
+**Note on Attachments:** If you want to send an email with attachments, you must provide the absolute valid path to the attachment file. If the agent complains about an invalid path, provide the agent with a valid absolute path.
