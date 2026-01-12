@@ -59,6 +59,20 @@ If you want to see how the email template looks after the agent generates, rende
 2. Open the generated .html file in VS Code.
 3. Click the "Go Live" button on the right bottom corner to preview the template in your browser.
 
+
 ## Future Plans
 
-This project is currently a command-line interface (CLI) application. Future developments will include building a graphical user interface (UI), incorporating observability features to monitor the agent's decision-making processes and execution steps, comprehensive logging to track all operations and facilitate debugging, and streaming capabilities to provide real-time updates on email generation and sending progress, thereby enhancing usability and monitoring.
+
+This project currently operates as a command-line interface (CLI) application.
+
+Planned improvements include:
+- A graphical user interface (UI) for easier interaction
+- Improved observability features to monitor the agent's decision-making processes and execution steps
+- Structured logging for debugging and traceability
+- Optional streaming capabilities to provide real-time updates on email generation  and sending status
+
+These additions aim to improve usability, transparency, and maintainability while keeping the core agent-driven architecture intact.
+
+
+
+
