@@ -50,3 +50,15 @@ To set up and run this project:
 6. Run the project: `uv run main.py`
 
 **Note on Attachments:** If you want to send an email with attachments, you must provide the absolute valid path to the attachment file. If the agent complains about an invalid path, provide the agent with a valid absolute path.
+
+### Previewing Email Templates
+
+If you want to see how the email template looks after the agent generates, renders with data, and compiles it to .html, you can preview it before agents sends it . To preview the template:
+
+1. Install the "Go Live" extension from VS Code extensions.
+2. Open the generated .html file in VS Code.
+3. Click the "Go Live" button on the right bottom corner to preview the template in your browser.
+
+## Future Plans
+
+This project is currently a command-line interface (CLI) application. Future developments will include building a graphical user interface (UI), incorporating observability features to monitor the agent's decision-making processes and execution steps, comprehensive logging to track all operations and facilitate debugging, and streaming capabilities to provide real-time updates on email generation and sending progress, thereby enhancing usability and monitoring.
